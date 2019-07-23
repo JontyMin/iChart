@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<script src="js/ichart.1.2.min.js"></script>
+	<title></title>
+	<script>
+		window.addEventListener("load", function () {
+			var data = [
+				{ name: "H5", value: 23.1, color: "#b5bcc5" },
+				{ name: "java", value: 16, color: "#b5bcc5" },
+				{ name: "css3", value: 27.4, color: "#b5bcc5" },
+				{ name: "Jquery", value: 12.4, color: "#b5bcc5" },
+				{ name: "asp", value: 9.6, color: "#b5bcc5" },
+				{ name: "jsp", value: 19.5, color: "#b5bcc5" },
+			];
+			new iChart.Bar2D({
+				render: "chart",//绑定的div id
+				data: data,//绑定的数据
+				title: {//标题
+					text: "编程语言市场份额",
+					color: "b5bcc5"
+				},
+				subtitle:{//副标题
+					text: "这是副标题",
+					color:"#afb6c0"
+				},
+				footnote:"这是脚注",
+				width: 800,
+				height: 400,
+				offsetx: 20,//组件中水平偏移量，正数向右，负数向左。单位像素。(默认为0)
+				coordinate: {//坐标系的配置项
+					width: 620,
+					height: 240,
+					grid_color: "#4e5464",
+					axis: {
+						color:'#4e5464',
+						width:[0,0,8,1]
+					},
+					scale: [{
+							 position:'bottom',	
+							 start_scale:0,
+							 end_scale:40,
+							 scale_space:5,
+							 label:{color:'#ffffff'},
+							 listeners:{
+								parseText:function(t,x,y){
+									return {text:t+"%"}
+								}
+							 }
+					}]
+				},
+				label: { color: "#dcdcdc" },
+				background_color: "#3c4251",
+				sub_option: {
+					listeners:{//事件的配置项
+							parseText:function(r,t){
+								return t+"%";
+							}
+						}
+				},
+				legend: {enable:false}
+			}).draw();
+
+
+		});
+
+
+	</script>
+</head>
+<body>
+	<div id="chart">
+
+
+	</div>
+</body>
+</html>

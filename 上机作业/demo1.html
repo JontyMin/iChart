@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+
+	<script src="js/ichart.1.2.min.js"></script>
+	<script>
+
+		window.addEventListener("load", function () {
+
+			var data = [
+				{
+					name: "长沙",
+					value: [-9,1,23,12,1,7,35,39,12,5,2,-5],
+					color: "#1f7e92",
+					line_width: 1
+				}
+			];
+
+			new iChart.Area2D({
+				render: "chart",
+				data: data,
+				title: "长沙市2018年平均气温",
+				width: 800,
+				height: 400,
+				coordinate: {//坐标系
+					height: "90%",
+					background_color: "#edf8fa",
+				},
+				sub_option: {//折线段的配置项
+					hollow_inside: false,
+					point_size: 10
+				},
+				labels: ["1月", "2月", "3月", "4月", "55月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
+			}).draw();
+		});
+
+	</script>
+</head>
+
+<body>
+	<div id="chart"></div>
+</body>
+</html>
